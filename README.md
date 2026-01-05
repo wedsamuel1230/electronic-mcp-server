@@ -1,11 +1,16 @@
 # Electronics MCP Servers 🔧⚡📌
 
+<!-- MCP Registry Ownership Proof -->
+mcp-name: io.github.wedsamuel1230/electronic-mcp-server
+<!-- End MCP Registry Ownership Proof -->
+
 Three production-ready MCP (Model Context Protocol) servers for electronics and embedded development, built with FastMCP and Python 3.11+.
 
 [![Tests](https://img.shields.io/badge/tests-103%20passed-brightgreen)](tests/)
 [![Python](https://img.shields.io/badge/python-3.11+-blue)](https://www.python.org/)
 [![FastMCP](https://img.shields.io/badge/FastMCP-1.1.0+-purple)](https://github.com/modelcontextprotocol/python-sdk)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://github.com/modelcontextprotocol/servers)
 
 ---
 

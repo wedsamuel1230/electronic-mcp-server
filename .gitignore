@@ -62,3 +62,7 @@ credentials.json
 # ═══════════════════════════════════════════════════════════════════════════
 # NOTE: memory-bank/ is INTENTIONALLY NOT IGNORED — it must be versioned
 # ═══════════════════════════════════════════════════════════════════════════
+.memory-bank/
+.mcpregistry_github_token
+.mcpregistry_registry_token
+mcp-publisher.exe
