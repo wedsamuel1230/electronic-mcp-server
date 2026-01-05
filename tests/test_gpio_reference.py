@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Samuel F.
 """
 Tests for GPIO Pin Reference MCP Server
 Tests pin database accuracy, tool functionality, and conflict detection.

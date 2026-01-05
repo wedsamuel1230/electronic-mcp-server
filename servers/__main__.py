@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Samuel F.
 """
 Electronics MCP Server - Combined Entry Point
 """

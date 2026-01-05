@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Samuel F.
 """
 Combined Electronics MCP Server
 Combines resistor_decoder, capacitor_calculator, and gpio_reference into a single server.

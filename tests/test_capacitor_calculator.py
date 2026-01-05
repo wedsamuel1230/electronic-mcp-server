@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Samuel F.
 """
 Tests for Capacitor Calculator MCP Server
 """

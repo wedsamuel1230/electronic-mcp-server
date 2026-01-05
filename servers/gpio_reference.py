@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Samuel F.
 """
 GPIO Pin Reference MCP Server
 Provides comprehensive pin information for ESP32, Arduino UNO, and STM32 boards.
