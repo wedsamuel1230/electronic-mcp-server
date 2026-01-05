@@ -6,12 +6,12 @@
     "url": "https://github.com/wedsamuel1230/electronic-mcp-server",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "0.1.0",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "electronics-mcp-servers",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "transport": {
         "type": "stdio"
       }
