@@ -14,6 +14,60 @@ A comprehensive Model Context Protocol (MCP) server providing 14 electronics eng
 pip install electronics-mcp-servers
 ```
 
+## Testing & Verification
+
+After installation, verify the package is working:
+
+### Test with uvx (recommended for MCP clients)
+
+```bash
+# Alternative: Test individual servers
+uvx --from electronics-mcp-servers resistor-decoder
+uvx --from electronics-mcp-servers capacitor-calc
+uvx --from electronics-mcp-servers gpio-reference
+```
+
+### Test with pip install
+
+```bash
+# After pip install, test the CLI
+electronics-mcp-servers --version
+
+# Or test individual tools
+resistor-decoder --help
+capacitor-calc --help
+gpio-reference --help
+```
+
+### Naming Clarification
+
+This project uses different naming conventions in different contexts:
+
+- **MCP Registry ID:** `io.github.wedsamuel1230/electronic-mcp-server` (singular)
+- **PyPI Package:** `electronics-mcp-servers` (plural)
+- **CLI Executables:** `electronics-mcp-servers`, `resistor-decoder`, `capacitor-calc`, `gpio-reference`
+
+When using `uvx`, always use the **PyPI package name** (`electronics-mcp-servers`).
+
+### Troubleshooting
+
+**Problem:** `uvx electronics-mcp-servers` shows "executable not provided" error
+
+**Solution:** The main `electronics-mcp-servers` executable was added in version **1.0.2**. Make sure you have the latest version:
+
+```bash
+# Force uvx to fetch the latest version
+uvx --refresh electronics-mcp-servers
+
+# Or specify the version explicitly
+uvx --from electronics-mcp-servers==1.0.2 electronics-mcp-servers
+
+# Check installed version
+pip index versions electronics-mcp-servers
+```
+
+If the error persists, PyPI may still be serving version 1.0.1. Wait a few minutes and try again.
+
 ## Features
 
 ### 🎨 Resistor Decoder (3 tools)

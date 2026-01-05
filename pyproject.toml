@@ -1,6 +1,6 @@
 [project]
 name = "electronics-mcp-servers"
-version = "1.0.1"
+version = "1.0.2"
 description = "MCP servers for electronics and embedded development: GPIO pin reference, capacitor calculator, and resistor color code decoder"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -32,6 +32,7 @@ dev = [
 ]
 
 [project.scripts]
+electronics-mcp-servers = "servers.__main__:main"
 resistor-decoder = "servers.resistor_decoder:main"
 capacitor-calc = "servers.capacitor_calculator:main"
 gpio-reference = "servers.gpio_reference:main"

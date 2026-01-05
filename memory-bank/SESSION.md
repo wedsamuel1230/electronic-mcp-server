@@ -1,5 +1,101 @@
 # Session Log
 
+## 2026-01-06 — v1.0.2 🚀 Package Build & Local Installation
+**Objective:** Build v1.0.2 package with new CLI entry point and verify locally
+
+**Problem:** 
+User tested `uvx electronics-mcp-servers` and still got the same error:
+```
+An executable named `electronics-mcp-servers` is not provided
+Available: capacitor-calc.exe, gpio-reference.exe, resistor-decoder.exe
+```
+
+**Root Cause:**
+- pyproject.toml had correct entry point (from previous session) ✓
+- But package was never rebuilt with the new configuration ✗
+- dist/ folder contained old v1.0.1 packages without main entry point
+- Package not installed in local environment
+
+**Resolution Actions:**
+1. ✅ Cleaned old dist/ folder (removed v1.0.1 packages)
+2. ✅ Built new v1.0.2 package with `python -m build`
+3. ✅ Installed locally: `pip install dist/electronics_mcp_servers-1.0.2-py3-none-any.whl --force-reinstall`
+4. ✅ Verified all 4 executables exist in Scripts folder
+
+**Verification Results:**
+```powershell
+# Package installation confirmed
+Version: 1.0.2
+Location: D:\Python\python313\Lib\site-packages
+
+# All 4 CLI executables available:
+✓ electronics-mcp-servers.exe
+✓ resistor-decoder.exe
+✓ capacitor-calc.exe
+✓ gpio-reference.exe
+
+# MCP server starts correctly (stdio mode)
+electronics-mcp-servers → Starts FastMCP server ✓
+```
+
+**Build Artifacts:**
+- dist/electronics_mcp_servers-1.0.2-py3-none-any.whl (wheel package)
+- dist/electronics_mcp_servers-1.0.2.tar.gz (source distribution)
+
+**Next Steps for User:**
+1. Test: `uvx --from ./dist/electronics_mcp_servers-1.0.2-py3-none-any.whl electronics-mcp-servers`
+2. Publish to PyPI: `uv publish` or `twine upload dist/*`
+3. After publishing, test: `uvx electronics-mcp-servers` (will fetch from PyPI)
+4. Submit to MCP Registry with updated version
+
+**Status:** ✅ Complete - All executables working locally
+
+---
+
+## 2026-01-05 — v1.0.2 🔧 CLI Entry Point Fix
+**Objective:** Fix MCP registry executable error by adding missing CLI entry point
+
+**Problem:** 
+```
+uvx electronics-mcp-servers
+Error: An executable named `electronics-mcp-servers` is not provided
+Available: capacitor-calc.exe, gpio-reference.exe, resistor-decoder.exe
+```
+
+**Root Cause:**
+- server.json expected single "electronics-mcp-servers" executable
+- pyproject.toml only defined 3 separate executables
+- Missing main CLI entry point for combined server
+
+**Changes Applied:**
+- ✅ Added `electronics-mcp-servers = "servers.__main__:main"` to pyproject.toml [project.scripts]
+- ✅ Added `main()` function to `servers/__main__.py` for CLI entry point
+- ✅ Bumped version to 1.0.2 in pyproject.toml
+- ✅ Updated version to 1.0.2 in server.json (both locations)
+- ✅ Added "Testing & Verification" section to README.md (lines 18-50)
+
+**Files Modified:**
+| File | Change |
+|------|--------|
+| `pyproject.toml` | Added main script entry + version bump (1.0.1 → 1.0.2) |
+| `server.json` | Version bump (1.0.1 → 1.0.2) in 2 locations |
+| `servers/__main__.py` | Added `main()` function for CLI entry |
+| `README.md` | Added testing/verification section with correct uvx commands |
+
+**Documentation Updates (v1.0.2a):**
+- Added "Testing & Verification" section after Installation
+- Clarified naming conventions (MCP Registry vs. PyPI vs. CLI executables)
+- Provided troubleshooting examples for common uvx errors
+- Showed both `uvx` and `pip install` verification methods
+
+**Backward Compatibility:**
+✅ Preserved all 3 existing executables (resistor-decoder, capacitor-calc, gpio-reference)
+✅ No breaking changes - added new entry point only
+
+**Status:** ✅ Complete
+
+---
+
 ## 2026-01-05 — v0.8.0 📜 License Headers Added
 **Objective:** Add SPDX license headers to all Python source files
 
